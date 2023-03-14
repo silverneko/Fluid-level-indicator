@@ -6,4 +6,4 @@ Fluid level indicator with a numerical display, that changes color based on how 
   src="thumbnail.png"
   alt="image"
   title="image"
-  style="display: inline-block; margin: 0 auto; max-width: 150px">
+  style="display: inline-block; margin: 0 auto; max-width: 75px">
