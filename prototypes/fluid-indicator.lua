@@ -4,13 +4,31 @@ fluid_level_indicator = util.table.deepcopy(data.raw["storage-tank"]["storage-ta
 local pipe = data.raw["pipe"]["pipe"]
 
 fluid_level_indicator.name = "fluid-level-indicator"
-fluid_level_indicator.icon = "__Fluid-level-indicator__/graphics/icons/fi-icon.png"
-fluid_level_indicator.icon_size = 32
+fluid_level_indicator.icon = "__Fluid-level-indicator__/graphics/icons/T-icon64.png"
+fluid_level_indicator.icon_size = 64
 fluid_level_indicator.flags = {"placeable-player", "player-creation", "placeable-neutral", "placeable-enemy"}
 fluid_level_indicator.minable = {mining_time = 0.1, result = "fluid-level-indicator"}
 fluid_level_indicator.collision_box = pipe.collision_box
 fluid_level_indicator.selection_box = pipe.selection_box
 fluid_level_indicator.apply_runtime_tint = true
+fluid_level_indicator.corpse = "pipe-remnants"
+fluid_level_indicator.dying_explosion = "pump-explosion"
+fluid_level_indicator.water_reflection = 
+{
+  pictures =
+  {
+    filename = "__Fluid-level-indicator__/graphics/entities/fluid-level-reflection.png",
+    priority = "extra-high",
+    width = 24,
+    height = 24,
+    shift = util.by_pixel(5, 35),
+    variation_count = 1,
+    scale = 5
+  },
+  rotate = false,
+  orientation_to_variation = false
+}
+
 fluid_level_indicator.fluid_box = 
 {
       base_area = 1,
@@ -56,41 +74,20 @@ fluid_level_indicator.pictures =
 }
 
 data:extend({
-    {
-    type = "recipe",
-    name = "fluid-level-indicator",
-    energy_required = 2,
-    enabled = true,
-    ingredients = {
-        {"steel-plate", 2},
-        {"pipe", 2},
-        {"small-lamp",1}
-    },
-    results = {
-        {"fluid-level-indicator", 1}
-    }
-},
 
 {
     type = "item",
     name = "fluid-level-indicator",
-    icon = "__Fluid-level-indicator__/graphics/icons/fi-icon.png",
-    icon_size = 32,
+    icon = "__Fluid-level-indicator__/graphics/icons/T-icon64.png",
+    icon_size = 64,
     flags = {},
     subgroup = "energy-pipe-distribution",
     order = "g[fluid-level-indicator]",
     place_result = "fluid-level-indicator",
     stack_size = 50
 },
+-- TODO: fix water reflection
 
-{
-    type = "sprite",
-    name = "fluid-level-indicator-red",
-    filename = "__Fluid-level-indicator__/graphics/entities/hr-pipe-cross-red.png",
-    width = 128,
-    height = 128,
-    scale = 0.5,
-},
 
 fluid_level_indicator
 })
