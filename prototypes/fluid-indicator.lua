@@ -40,7 +40,8 @@ fluid_level_indicator.fluid_box =
         { position = {1, 0} },
         { position = {0, 1} },
         { position = {-1, 0} }
-      }
+      },
+      hide_connection_info = true
 }
 fluid_level_indicator.pictures = 
 {
