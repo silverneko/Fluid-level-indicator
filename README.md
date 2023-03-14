@@ -8,4 +8,4 @@ Fluid level indicator with a numerical display, that changes color based on how 
   title="image"
   style="display: inline-block; margin: 0 auto; max-width: 75px">
 
-![[image](https://github.com/kmecseki/Fluid-level-indicator/blob/main/thumbnail.png)]
+![image](https://github.com/kmecseki/Fluid-level-indicator/blob/main/thumbnail.png)
