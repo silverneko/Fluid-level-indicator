@@ -1,3 +1,8 @@
+Version: 0.2.0
+Date: 13 March 2023
+  Features:
+    - Now hiding the connection info for better visibility in alt mode.
+
 Version: 0.1.0
 Date: 12 March 2023
   Features:
