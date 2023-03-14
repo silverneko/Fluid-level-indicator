@@ -1,11 +1,11 @@
 {
     "name": "Fluid-level-indicator",
-    "version": "0.2.0",
+    "version": "0.3.0",
     "factorio_version": "1.1",
     "title": "Fluid Level Indicator",
     "author": "kmecseki",
     "contact": "",
-    "homepage": "https://github.com/kmecseki/Fluid-level-indicator",
+    "homepage": "",
     "description": "Numerical display showing the fluid/gas level in a system."
   }
   

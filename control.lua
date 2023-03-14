@@ -10,11 +10,12 @@ local function players_present()
     return players_present
 end
 
-local function on_tick(event)
+local function fliupdate()
 
-    if game.tick % 60 == 0 then
-        if players_present and global.flis~=nil then
-            for i, fli in pairs(global.flis) do
+    if next(global.flis)~=nil then
+        for i=0, settings.global["number_of_units_to_check_per_update"].value do
+            global.fliindex, fli = next(global.flis, global.fliindex)
+            if fli~=nil then
                 if fli.valid then
                     local surface = fli.surface
                     local fluid_count = fli.get_fluid_count()
@@ -25,11 +26,21 @@ local function on_tick(event)
                         b=0,
                         a=0.9})
                 else
-                    rendering.destroy(global.flitexts[i])
-                    global.flitexts[i] = nil
-                    global.flis[i] = nil
+                    rendering.destroy(global.flitexts[global.fliindex])
+                    global.flitexts[global.fliindex] = nil
+                    global.flis[global.fliindex] = nil
                 end
             end
+        end
+    end
+end
+
+local function on_tick(event)
+    
+    -- Check if players present and if yes, update flis.
+    if players_present then
+        if game.tick % settings.global["update_every_x_tick"].value == 0 then
+                fliupdate()
         end
     end
 end
@@ -54,6 +65,7 @@ local function placedfli(placed_entity)
     if placed_entity.name=="fluid-level-indicator" then
         global.flis[placed_entity.unit_number] = placed_entity
         create_textbox(placed_entity, surface)
+        global.fliindex = placed_entity.unit_number
     end
 end
 
@@ -63,7 +75,11 @@ local function register_flis()
         for _,fli in pairs(surface.find_entities_filtered({name = "fluid-level-indicator"})) do
             global.flis[fli.unit_number] = fli
             create_textbox(fli, surface)
+            global.fliindex = fli.unit_number
         end
+    end
+    if next(global.flis)~= nil then
+        global.fliindex, fli = next(global.flis, nil)
     end
 end
 
@@ -112,17 +128,15 @@ script.on_event(defines.events.on_pre_chunk_deleted, function(event)
 script.on_configuration_changed(function()
     global.flis = {}
     global.flitexts = {}
+    global.fliindex = 1
     register_flis()
   end)
 
 script.on_init(function() 
     global.flis = {}
     global.flitexts = {}
+    global.fliindex = 1
     end
     )
 
 script.on_event(defines.events.on_tick, on_tick)
-script.on_event(defines.events.on_tick, on_tick)
-
-
- 

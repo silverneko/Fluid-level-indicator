@@ -13,6 +13,9 @@ fluid_level_indicator.selection_box = pipe.selection_box
 fluid_level_indicator.apply_runtime_tint = true
 fluid_level_indicator.corpse = "pipe-remnants"
 fluid_level_indicator.dying_explosion = "pump-explosion"
+fluid_level_indicator.circuit_wire_connection_points = circuit_connector_definitions["pump"].points
+fluid_level_indicator.circuit_connector_sprites = circuit_connector_definitions["pump"].sprites
+fluid_level_indicator.circuit_wire_max_distance = default_circuit_wire_max_distance
 fluid_level_indicator.water_reflection = 
 {
   pictures =
@@ -87,8 +90,6 @@ data:extend({
     place_result = "fluid-level-indicator",
     stack_size = 50
 },
--- TODO: fix water reflection
-
 
 fluid_level_indicator
 })
