@@ -16,6 +16,7 @@ fluid_level_indicator.dying_explosion = "pump-explosion"
 fluid_level_indicator.circuit_wire_connection_points = circuit_connector_definitions["pump"].points
 fluid_level_indicator.circuit_connector_sprites = circuit_connector_definitions["pump"].sprites
 fluid_level_indicator.circuit_wire_max_distance = default_circuit_wire_max_distance
+fluid_level_indicator.se_allow_in_space = true
 fluid_level_indicator.water_reflection = 
 {
   pictures =
@@ -91,7 +92,20 @@ data:extend({
     stack_size = 50
 },
 
-fluid_level_indicator
+fluid_level_indicator,
+
+
+{
+      type = "sprite",
+      name = "cross-pipe",
+      filename = "__Fluid-level-indicator__/graphics/entities/hr-pipe-cross-screentop.png",
+      width = 128,
+      height = 128,
+      scale = 0.5,
+      apply_runtime_tint = false
+    }
+
+
 })
 
 

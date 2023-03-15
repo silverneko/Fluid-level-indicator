@@ -27,6 +27,8 @@ local function fliupdate()
                         a=0.9})
                 else
                     rendering.destroy(global.flitexts[global.fliindex])
+                    rendering.destroy(global.flikocka[global.fliindex])
+                    global.flikocka[global.fliindex] = nil
                     global.flitexts[global.fliindex] = nil
                     global.flis[global.fliindex] = nil
                 end
@@ -46,6 +48,14 @@ local function on_tick(event)
 end
 
 local function create_textbox(fli, surface)
+
+    global.flikocka[fli.unit_number] = rendering.draw_sprite({
+        sprite = "cross-pipe",
+        target = fli.position,
+        surface = surface,
+        only_in_alt_mode = true
+
+    })
     global.flitexts[fli.unit_number] = rendering.draw_text({
         text = "0%",
         surface = surface,
@@ -87,6 +97,8 @@ local function removedfli(removed_entity)
     if removed_entity.name=="fluid-level-indicator" then
         global.flis[removed_entity.unit_number] = nil
         rendering.destroy(global.flitexts[removed_entity.unit_number])
+        rendering.destroy(global.flikocka[removed_entity.unit_number])
+        global.flikocka[removed_entity.unit_number] = nil
         global.flitexts[removed_entity.unit_number] = nil
     end
 end
@@ -129,6 +141,7 @@ script.on_configuration_changed(function()
     global.flis = {}
     global.flitexts = {}
     global.fliindex = 1
+    global.flikocka = {}
     register_flis()
   end)
 
@@ -136,6 +149,7 @@ script.on_init(function()
     global.flis = {}
     global.flitexts = {}
     global.fliindex = 1
+    global.flikocka = {}
     end
     )
 
