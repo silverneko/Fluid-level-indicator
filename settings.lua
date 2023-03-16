@@ -11,5 +11,13 @@ data:extend({
 		setting_type = "runtime-global",
 		type = "int-setting",
 		default_value = 10
+	},
+	{
+		type = "string-setting",
+		name = "font-picker",
+		setting_type = "startup",
+		default_value = "seven",
+		allowed_values = {"seven", "default"},
+		order = "d-e"
 	}
 })

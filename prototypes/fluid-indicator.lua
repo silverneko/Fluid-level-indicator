@@ -57,9 +57,9 @@ fluid_level_indicator.pictures =
             filename = "__Fluid-level-indicator__/graphics/entities/hr-pipe-cross-screen.png",
             priority = "extra-high",
             frames = 1,
-            width = 64,
-            height = 64,
-            scale = 1,
+            width = 128,
+            height = 128,
+            scale = 0.5,
             hr_version =
             {
               filename = "__Fluid-level-indicator__/graphics/entities/hr-pipe-cross-screen.png",

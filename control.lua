@@ -61,8 +61,8 @@ local function create_textbox(fli, surface)
         surface = surface,
         target = {fli.position.x,fli.position.y-0.33},
         color = {r=1,g=0,b=0,a=0.9},
-        scale = 1.0,
-        font = "seven",
+        scale = 1,
+        font = settings.startup["font-picker"].value,
         alignment = "center",
         vertical_alignment = "top",
         time_to_live = 0
