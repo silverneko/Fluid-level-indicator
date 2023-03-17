@@ -1,3 +1,10 @@
+Version: 0.6.0
+Date: 16 March 2023
+  Feature:
+    - Added support for using sprites instead of drawn fonts. This improves readability at lower resolutions by a lot.
+  Other:
+    - Changed where the item is in the crafting menu, it is now next to the pump.
+
 Version: 0.5.0
 Date: 15 March 2023
   Feature:

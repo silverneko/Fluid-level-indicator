@@ -1,5 +1,9 @@
 
-empty_sprite = { filename = "__core__/graphics/empty.png", size = 1, frame_count = 1 }
+empty_sprite = { 
+  filename = "__core__/graphics/empty.png", 
+  size = 1, 
+  frame_count = 1 
+}
 fluid_level_indicator = util.table.deepcopy(data.raw["storage-tank"]["storage-tank"])
 local pipe = data.raw["pipe"]["pipe"]
 
@@ -8,8 +12,10 @@ fluid_level_indicator.icon = "__Fluid-level-indicator__/graphics/icons/T-icon64.
 fluid_level_indicator.icon_size = 64
 fluid_level_indicator.flags = {"placeable-player", "player-creation", "placeable-neutral", "placeable-enemy"}
 fluid_level_indicator.minable = {mining_time = 0.1, result = "fluid-level-indicator"}
-fluid_level_indicator.collision_box = pipe.collision_box
-fluid_level_indicator.selection_box = pipe.selection_box
+--fluid_level_indicator.collision_box = pipe.collision_box
+--fluid_level_indicator.selection_box = pipe.selection_box
+fluid_level_indicator.collision_box = {{-0.32, -0.4}, {0.32, 0.4}}
+fluid_level_indicator.selection_box = {{-0.5, -0.6}, {0.5, 0.6}}
 fluid_level_indicator.apply_runtime_tint = true
 fluid_level_indicator.corpse = "pipe-remnants"
 fluid_level_indicator.dying_explosion = "pump-explosion"
@@ -77,7 +83,8 @@ fluid_level_indicator.pictures =
       window_background = empty_sprite,
       flow_sprite = empty_sprite
 }
-
+empty_sprite.name = "flinumber "
+empty_sprite.type = "sprite"
 data:extend({
 
 {
@@ -87,25 +94,13 @@ data:extend({
     icon_size = 64,
     flags = {},
     subgroup = "energy-pipe-distribution",
-    order = "g[fluid-level-indicator]",
+    order = "f[fluid-level-indicator]",
     place_result = "fluid-level-indicator",
     stack_size = 50
 },
 
 fluid_level_indicator,
-
-
-{
-      type = "sprite",
-      name = "cross-pipe",
-      filename = "__Fluid-level-indicator__/graphics/entities/hr-pipe-cross-screentop.png",
-      width = 128,
-      height = 128,
-      scale = 0.5,
-      apply_runtime_tint = false
-    }
-
-
+empty_sprite
 })
 
 

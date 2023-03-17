@@ -16,8 +16,8 @@ data:extend({
 		type = "string-setting",
 		name = "font-picker",
 		setting_type = "startup",
-		default_value = "seven",
-		allowed_values = {"seven", "default"},
+		default_value = "sprite",
+		allowed_values = {"seven", "default", "sprite"},
 		order = "d-e"
 	}
 })
