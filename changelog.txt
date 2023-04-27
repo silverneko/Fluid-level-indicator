@@ -1,37 +1,37 @@
+---------------------------------------------------------------------------------------------------
 Version: 0.6.0
 Date: 16 March 2023
   Feature:
     - Added support for using sprites instead of drawn fonts. This improves readability at lower resolutions by a lot.
   Other:
     - Changed where the item is in the crafting menu, it is now next to the pump.
-
+---------------------------------------------------------------------------------------------------
 Version: 0.5.0
 Date: 15 March 2023
   Feature:
     - Added support for using default font. Might look better at lower resolutions.
   Bugfixes:
     - Fixed low resolution sprite scaling.
-
+---------------------------------------------------------------------------------------------------
 Version: 0.4.0
 Date: 15 March 2023
   Other:
     - Fixed alt-mode icon showing over the numbers.
     - Added support for Space Exploration, they can now be built in space and on space-ships.
-
+---------------------------------------------------------------------------------------------------
 Version: 0.3.0
 Date: 14 March 2023
   Performance improvement:
     - Added two new settings to change how often and how many units to update per tick. 
   Other:
     - Changed wiring location.
-
+---------------------------------------------------------------------------------------------------
 Version: 0.2.0
 Date: 13 March 2023
   Features:
     - Now hiding the connection info for better visibility in alt mode.
-
+---------------------------------------------------------------------------------------------------
 Version: 0.1.0
 Date: 13 March 2023
   Features:
     - Initial release of a mod, that shows the fluid level in a system.
-
