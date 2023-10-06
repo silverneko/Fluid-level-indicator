@@ -80,24 +80,24 @@ local function fli_update()
 
     if next(global.flis)~=nil then
         for i=0, settings.global["number_of_units_to_check_per_update"].value do
-            global.fliindex, efli = next(global.flis, global.fliindex)
-            if efli~=nil then
-                if efli.valid then
-                    local surface = efli.surface
-                    local fluid_count = efli.get_fluid_count()
+            global.fliindex, fli = next(global.flis, global.fliindex)
+            if fli~=nil then
+                if fli.valid then
+                    local surface = fli.surface
+                    local fluid_count = fli.get_fluid_count()
                     local color = {1, 1, 1, 1}
-                    color = calc_color(fluid_count, global.flitype[efli.unit_number])
+                    color = calc_color(fluid_count, global.flitype[fli.unit_number])
                     if settings.startup["font-picker"].value=="sprite" then
                         rendering.set_sprite(global.flidig1[global.fliindex], get_digit(tostring(string.format("%.f",fluid_count)),1))
                         rendering.set_sprite(global.flidig10[global.fliindex], get_digit(tostring(string.format("%.f",fluid_count)),2))
                         rendering.set_sprite(global.flidig100[global.fliindex], get_digit(tostring(string.format("%.f",fluid_count)),3))
-                        rendering.set_color(global.flidig1[efli.unit_number],color)
-                        rendering.set_color(global.flidig10[efli.unit_number],color)
-                        rendering.set_color(global.flidig100[efli.unit_number],color)
-                        rendering.set_color(global.flidigpc[efli.unit_number],color)
+                        rendering.set_color(global.flidig1[fli.unit_number],color)
+                        rendering.set_color(global.flidig10[fli.unit_number],color)
+                        rendering.set_color(global.flidig100[fli.unit_number],color)
+                        rendering.set_color(global.flidigpc[fli.unit_number],color)
                     else
-                        rendering.set_text(global.flitexts[efli.unit_number],tostring(string.format("%.f",fluid_count)).."%" )
-                        rendering.set_color(global.flitexts[efli.unit_number], color)
+                        rendering.set_text(global.flitexts[fli.unit_number],tostring(string.format("%.f",fluid_count)).."%" )
+                        rendering.set_color(global.flitexts[fli.unit_number], color)
                     end
                 else
                     if settings.startup["font-picker"].value=="sprite" then
