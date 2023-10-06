@@ -7,6 +7,29 @@ empty_sprite = {
 fluid_level_indicator = util.table.deepcopy(data.raw["storage-tank"]["storage-tank"])
 local pipe = data.raw["pipe"]["pipe"]
 
+circuit_connector_definitions["fluid-level-indicator"] = circuit_connector_definitions.create
+(
+  universal_connector_template,
+  {
+    { variation = 4,
+    main_offset = util.by_pixel(10.5, -8.5),
+    shadow_offset = util.by_pixel(10.0, -0.5),
+    show_shadow = true },
+    { variation = 4,
+    main_offset = util.by_pixel(10.5, -8.5),
+    shadow_offset = util.by_pixel(10.0, -0.5),
+    show_shadow = true },
+    { variation = 4,
+    main_offset = util.by_pixel(10.5, -8.5),
+    shadow_offset = util.by_pixel(10.0, -0.5),
+    show_shadow = true },
+    { variation = 4,
+    main_offset = util.by_pixel(10.5, -8.5),
+    shadow_offset = util.by_pixel(10.0, -0.5),
+    show_shadow = true }
+  }
+)
+
 fluid_level_indicator.name = "fluid-level-indicator"
 fluid_level_indicator.icon = "__Fluid-level-indicator__/graphics/icons/T-icon64.png"
 fluid_level_indicator.icon_size = 64
@@ -19,8 +42,8 @@ fluid_level_indicator.selection_box = {{-0.5, -0.6}, {0.5, 0.6}}
 fluid_level_indicator.apply_runtime_tint = true
 fluid_level_indicator.corpse = "pipe-remnants"
 fluid_level_indicator.dying_explosion = "pump-explosion"
-fluid_level_indicator.circuit_wire_connection_points = circuit_connector_definitions["pump"].points
-fluid_level_indicator.circuit_connector_sprites = circuit_connector_definitions["pump"].sprites
+fluid_level_indicator.circuit_wire_connection_points = circuit_connector_definitions["fluid-level-indicator"].points
+fluid_level_indicator.circuit_connector_sprites = circuit_connector_definitions["fluid-level-indicator"].sprites
 fluid_level_indicator.circuit_wire_max_distance = default_circuit_wire_max_distance
 fluid_level_indicator.se_allow_in_space = true
 fluid_level_indicator.water_reflection = 

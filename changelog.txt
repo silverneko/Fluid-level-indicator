@@ -1,4 +1,10 @@
 ---------------------------------------------------------------------------------------------------
+Version 0.7.0
+Date: 5 October 2023
+  Feature:
+    - It is now possible to change the behavior of the indicator to show empty or a mid-filled pipe as green if needed.
+    - Minor tweaks: wire connection location, 
+---------------------------------------------------------------------------------------------------
 Version: 0.6.1
 Date: 14 June 2023
   Other:
