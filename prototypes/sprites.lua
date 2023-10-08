@@ -15,15 +15,6 @@ end
 data:extend({
     {
         type = "sprite",
-        name = "cross-pipe",
-        filename = "__Fluid-level-indicator__/graphics/entities/hr-pipe-cross-screentop.png",
-        width = 128,
-        height = 128,
-        scale = 0.5,
-        apply_runtime_tint = false
-    },
-    {
-        type = "sprite",
         name = "flinumberpc",
         filename = "__Fluid-level-indicator__/graphics/sprites/spritesheet.png",
         x = 10 * 94,

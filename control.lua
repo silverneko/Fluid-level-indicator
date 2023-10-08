@@ -40,6 +40,17 @@ end)
 
 script.on_configuration_changed(function(data)
     --if data.mod_changes and data.mod_changes["fluid-level-indicator"] then
+    --    game.print("Fluid level indicator: Updated from ".. tostring(data.mod_changes["fluid-level-indicator"].old_version) .. " to " .. tostring(data.mod_changes["fluid-level-indicator"].new_version))
+    --    for _, force in pairs(game.forces) do
+    --            if global.flikocka ~= nil then
+    --                global.flikocka = nil
+    --            end
+    --            if force.technologies["fluid-level-indicator"].researched then
+    --                force.recipes["fluid-level-indicator"].enabled = true
+    --                force.recipes["fluid-level-indicator-straight"].enabled = true
+    --            end              
+    --    end
+    --end
         global.flis = {}
         global.flitexts = {}
         global.flidig1 = {}
@@ -47,7 +58,6 @@ script.on_configuration_changed(function(data)
         global.flidig100 = {}
         global.flidigpc = {}
         global.fliindex = 1
-        global.flikocka = {}
         if global.flitype == nil then
             -- to keep settings
             global.flitype = {}
@@ -65,7 +75,6 @@ script.on_init(function()
     global.flidig100 = {}
     global.flidigpc = {}
     global.fliindex = 1
-    global.flikocka = {}
     global.flitype = {}
     global.currentfliunitnumber = nil
     end)
@@ -82,7 +91,7 @@ end)
 script.on_event(defines.events.on_gui_opened, function(event)
     local player = game.players[event.player_index]
     local ent = event.entity
-    if (event.gui_type == defines.gui_type.entity) and (ent.name == "fluid-level-indicator") then
+    if (event.gui_type == defines.gui_type.entity) and ((ent.name == "fluid-level-indicator") or (ent.name == "fluid-level-indicator-straight")) then
         open_fli_gui(player, ent)
     end
 end)
@@ -90,7 +99,7 @@ end)
 script.on_event(defines.events.on_gui_closed, function(event)
     local player = game.players[event.player_index]
     local ent = event.entity
-    if (event.gui_type == defines.gui_type.entity) and (ent.name == "fluid-level-indicator") then
+    if (event.gui_type == defines.gui_type.entity) and ((ent.name == "fluid-level-indicator") or (ent.name == "fluid-level-indicator-straight")) then
         close_fli_gui(player, ent)
     end
 end)

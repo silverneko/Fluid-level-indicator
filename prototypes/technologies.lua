@@ -9,6 +9,10 @@ data:extend({
           {
             type = "unlock-recipe",
             recipe = "fluid-level-indicator"
+          },
+          {
+            type = "unlock-recipe",
+            recipe = "fluid-level-indicator-straight"
           }
         },
         prerequisites = {"optics"},
