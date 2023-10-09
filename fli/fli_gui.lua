@@ -38,7 +38,7 @@ function close_fli_gui(player, ent)
     if not player then
         return
     end
-    local frame_flow = player.gui.screen
+    local frame_flow = player.gui.relative
     if frame_flow.fli_picker then
         frame_flow.fli_picker.destroy()
     end
