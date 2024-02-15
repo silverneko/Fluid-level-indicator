@@ -55,7 +55,7 @@ end
 
 function removedfli(removed_entity)
 
-    if (removed_entity.name=="fluid-level-indicator") or (removed_entity.name=="fluid-level-indicator-straight") then
+    if (removed_entity.name=="fluid-level-indicator") or (removed_entity.name=="fluid-level-indicator-straight") or (removed_entity.name=="fluid-level-indicator-k2") or (removed_entity.name=="fluid-level-indicator-straight-k2")then
         global.flis[removed_entity.unit_number] = nil
         --rendering.destroy(global.flikocka[removed_entity.unit_number])
         --global.flikocka[removed_entity.unit_number] = nil
@@ -84,7 +84,9 @@ local function fli_update()
             if fli~=nil then
                 if fli.valid then
                     local surface = fli.surface
-                    local fluid_count = fli.get_fluid_count()
+                    local fluid_count_actual = fli.get_fluid_count()
+                    local maxfluid = fli.fluidbox.get_capacity(1)
+                    local fluid_count = fluid_count_actual/maxfluid*100
                     local color = {1, 1, 1, 1}
                     if global.flitype[fli.unit_number] == nil then
                         -- If migration failed
@@ -209,7 +211,7 @@ end
 function placedfli(placed_entity)
 
     local surface = placed_entity.surface
-    if (placed_entity.name=="fluid-level-indicator") or (placed_entity.name=="fluid-level-indicator-straight") then
+    if (placed_entity.name=="fluid-level-indicator") or (placed_entity.name=="fluid-level-indicator-straight") or (placed_entity.name=="fluid-level-indicator-k2") or (placed_entity.name=="fluid-level-indicator-straight-k2") then
         global.flis[placed_entity.unit_number] = placed_entity
         create_textbox(placed_entity, surface)
         global.fliindex = placed_entity.unit_number
@@ -221,7 +223,7 @@ function register_flis()
 
     rendering.clear("Fluid-level-indicator")
     for _,surface in pairs(game.surfaces) do
-        for _,fli in pairs(surface.find_entities_filtered({name = {"fluid-level-indicator", "fluid-level-indicator-straight"}})) do
+        for _,fli in pairs(surface.find_entities_filtered({name = {"fluid-level-indicator", "fluid-level-indicator-straight","fluid-level-indicator-k2","fluid-level-indicator-straight-k2"}})) do
             global.flis[fli.unit_number] = fli
             if global.flitype[fli.unit_number] == nil then
                 global.flitype[fli.unit_number] = 1

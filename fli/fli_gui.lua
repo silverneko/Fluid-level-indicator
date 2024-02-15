@@ -1,6 +1,6 @@
 function open_fli_gui(player, ent)
 
-    if not ent or not ent.valid or (ent.name ~= "fluid-level-indicator" and ent.name ~= "fluid-level-indicator-straight") then
+    if not ent or not ent.valid or (ent.name ~= "fluid-level-indicator" and ent.name ~= "fluid-level-indicator-straight" and ent.name ~= "fluid-level-indicator-k2" and ent.name ~= "fluid-level-indicator-straight-k2") then
         return
     end
     if not player then

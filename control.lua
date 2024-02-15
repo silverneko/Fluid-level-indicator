@@ -1,5 +1,6 @@
 mod_gui = require("mod-gui")
 require "fli/fli"
+--local compatibility = require("compatibility.compatibility")
 
 script.on_event(defines.events.on_built_entity, function(event) placedfli(event.created_entity) end)
 script.on_event(defines.events.on_robot_built_entity, function(event) placedfli(event.created_entity) end)
@@ -19,20 +20,20 @@ script.on_event(defines.events.on_pre_chunk_deleted, function(event)
       local x = chunk.x
       local y = chunk.y
       local area = {{x*32,y*32},{31+x*32,31+y*32}}
-      for _,ent in pairs(game.get_surface(event.surface_index).find_entities_filtered{name = "fluid-level-indicator",area = area}) do
+      for _,ent in pairs(game.get_surface(event.surface_index).find_entities_filtered{name = {"fluid-level-indicator", "fluid-level-indicator-straight","fluid-level-indicator-k2","fluid-level-indicator-straight-k2"},area = area}) do
         removedfli(ent)
       end
     end
 end)
 
 script.on_event(defines.events.on_pre_surface_cleared,function(event)
-    for _,ent in pairs(game.get_surface(event.surface_index).find_entities_filtered{name = "fluid-level-indicator"}) do
+    for _,ent in pairs(game.get_surface(event.surface_index).find_entities_filtered(surface.find_entities_filtered({name = {"fluid-level-indicator", "fluid-level-indicator-straight","fluid-level-indicator-k2","fluid-level-indicator-straight-k2"}}))) do
         removedfli(ent)
     end
 end)
 
 script.on_event(defines.events.on_pre_surface_deleted,function(event)
-    for _,ent in pairs(game.get_surface(event.surface_index).find_entities_filtered{name = "fluid-level-indicator"}) do
+    for _,ent in pairs(game.get_surface(event.surface_index).find_entities_filtered(surface.find_entities_filtered({name = {"fluid-level-indicator", "fluid-level-indicator-straight","fluid-level-indicator-k2","fluid-level-indicator-straight-k2"}}))) do
         removedfli(ent)
     end
 end)
@@ -51,19 +52,19 @@ script.on_configuration_changed(function(data)
     --            end              
     --    end
     --end
-        global.flis = {}
-        global.flitexts = {}
-        global.flidig1 = {}
-        global.flidig10 = {}
-        global.flidig100 = {}
-        global.flidigpc = {}
-        global.fliindex = 1
-        if global.flitype == nil then
-            -- to keep settings
-            global.flitype = {}
-        end
-        global.currentfliunitnumber = nil
-        register_flis()
+    global.flis = {}
+    global.flitexts = {}
+    global.flidig1 = {}
+    global.flidig10 = {}
+    global.flidig100 = {}
+    global.flidigpc = {}
+    global.fliindex = 1
+    if global.flitype == nil then
+        -- to keep settings
+        global.flitype = {}
+    end
+    global.currentfliunitnumber = nil
+    register_flis()
     --end
 end)
 
@@ -91,7 +92,7 @@ end)
 script.on_event(defines.events.on_gui_opened, function(event)
     local player = game.players[event.player_index]
     local ent = event.entity
-    if (event.gui_type == defines.gui_type.entity) and ((ent.name == "fluid-level-indicator") or (ent.name == "fluid-level-indicator-straight")) then
+    if (event.gui_type == defines.gui_type.entity) and ((ent.name == "fluid-level-indicator") or (ent.name == "fluid-level-indicator-straight") or (ent.name == "fluid-level-indicator-k2") or (ent.name == "fluid-level-indicator-straight-k2")) then
         open_fli_gui(player, ent)
     end
 end)
@@ -99,7 +100,7 @@ end)
 script.on_event(defines.events.on_gui_closed, function(event)
     local player = game.players[event.player_index]
     local ent = event.entity
-    if (event.gui_type == defines.gui_type.entity) and ((ent.name == "fluid-level-indicator") or (ent.name == "fluid-level-indicator-straight")) then
+    if (event.gui_type == defines.gui_type.entity) and ((ent.name == "fluid-level-indicator") or (ent.name == "fluid-level-indicator-straight") or (ent.name == "fluid-level-indicator-k2") or (ent.name == "fluid-level-indicator-straight-k2")) then
         close_fli_gui(player, ent)
     end
 end)

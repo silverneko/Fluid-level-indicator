@@ -26,5 +26,6 @@ data:extend({
           time = 60
         },
         order = "e-d-e"
-      }
-    })
+      },    
+      })
+

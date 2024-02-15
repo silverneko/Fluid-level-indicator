@@ -26,5 +26,5 @@ data:extend({
     results = {
         {"fluid-level-indicator-straight", 1}
     }
-}
+},
 })

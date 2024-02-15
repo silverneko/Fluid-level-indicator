@@ -4,8 +4,10 @@ empty_sprite = {
   size = 1, 
   frame_count = 1 
 }
-fluid_level_indicator = util.table.deepcopy(data.raw["storage-tank"]["storage-tank"])
+
 local pipe = data.raw["pipe"]["pipe"]
+
+-- Circuit connection definitions
 
 circuit_connector_definitions["fluid-level-indicator"] = circuit_connector_definitions.create
 (
@@ -53,6 +55,12 @@ circuit_connector_definitions["fluid-level-indicator-straight"] = circuit_connec
   }
 )
 
+circuit_connector_definitions["fluid-level-indicator-k2"] = circuit_connector_definitions["fluid-level-indicator"]
+circuit_connector_definitions["fluid-level-indicator-straight-k2"] = circuit_connector_definitions["fluid-level-indicator-straight"]
+
+-- fluid level indicator 
+
+fluid_level_indicator = util.table.deepcopy(data.raw["storage-tank"]["storage-tank"])
 fluid_level_indicator.name = "fluid-level-indicator"
 fluid_level_indicator.icon = "__Fluid-level-indicator__/graphics/icons/T-icon64.png"
 fluid_level_indicator.icon_size = 64
@@ -148,6 +156,8 @@ fluid_level_indicator.pictures =
       window_background = empty_sprite,
       flow_sprite = empty_sprite
 }
+
+-- fluid level indicator straight
 
 fluid_level_indicator_straight = util.table.deepcopy(data.raw["storage-tank"]["storage-tank"])
 fluid_level_indicator_straight.name = "fluid-level-indicator-straight"
@@ -270,7 +280,6 @@ data:extend({
   place_result = "fluid-level-indicator-straight",
   stack_size = 50
 },
-
 fluid_level_indicator,
 fluid_level_indicator_straight,
 empty_sprite
