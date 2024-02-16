@@ -16,24 +16,27 @@ script.on_event(defines.events.script_raised_destroy, function(event) removedfli
 
 
 script.on_event(defines.events.on_pre_chunk_deleted, function(event)
+    local surface = game.surfaces[event.surface_index]
     for _,chunk in pairs(event.positions) do
       local x = chunk.x
       local y = chunk.y
       local area = {{x*32,y*32},{31+x*32,31+y*32}}
-      for _,ent in pairs(game.get_surface(event.surface_index).find_entities_filtered{name = {"fluid-level-indicator", "fluid-level-indicator-straight","fluid-level-indicator-k2","fluid-level-indicator-straight-k2"},area = area}) do
+      for _,ent in pairs(surface.find_entities_filtered{name = {"fluid-level-indicator", "fluid-level-indicator-straight","fluid-level-indicator-k2","fluid-level-indicator-straight-k2"},area = area}) do
         removedfli(ent)
       end
     end
 end)
 
 script.on_event(defines.events.on_pre_surface_cleared,function(event)
-    for _,ent in pairs(game.get_surface(event.surface_index).find_entities_filtered(surface.find_entities_filtered({name = {"fluid-level-indicator", "fluid-level-indicator-straight","fluid-level-indicator-k2","fluid-level-indicator-straight-k2"}}))) do
+    local surface = game.surfaces[event.surface_index]
+    for _,ent in pairs(surface.find_entities_filtered(surface.find_entities_filtered({name = {"fluid-level-indicator", "fluid-level-indicator-straight","fluid-level-indicator-k2","fluid-level-indicator-straight-k2"}}))) do
         removedfli(ent)
     end
 end)
 
 script.on_event(defines.events.on_pre_surface_deleted,function(event)
-    for _,ent in pairs(game.get_surface(event.surface_index).find_entities_filtered(surface.find_entities_filtered({name = {"fluid-level-indicator", "fluid-level-indicator-straight","fluid-level-indicator-k2","fluid-level-indicator-straight-k2"}}))) do
+    local surface = game.surfaces[event.surface_index]
+    for _,ent in pairs(surface.find_entities_filtered(surface.find_entities_filtered({name = {"fluid-level-indicator", "fluid-level-indicator-straight","fluid-level-indicator-k2","fluid-level-indicator-straight-k2"}}))) do
         removedfli(ent)
     end
 end)
