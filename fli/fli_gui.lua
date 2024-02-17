@@ -26,7 +26,7 @@ function open_fli_gui(player, ent)
     local fli_dropdown = fli_picker.add(
         {
             type = "drop-down",
-            items = {{"fli.high-ideal"}, {"fli.mid-ideal"}, {"fli.low-ideal"}},
+            items = {{"fli.high-ideal"}, {"fli.mid-ideal"}, {"fli.low-ideal"}, {"fli.flow"}},
             selected_index = global.flitype[ent.unit_number],
             name = "fli_dropdown"
         }    

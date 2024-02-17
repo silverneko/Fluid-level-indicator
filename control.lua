@@ -8,6 +8,11 @@ script.on_event(defines.events.script_raised_built, function(event) placedfli(ev
 script.on_event(defines.events.script_raised_revive, function(event) placedfli(event.entity) end)
 script.on_event(defines.events.on_entity_cloned, function(event) placedfli(event.destination) end)
 
+--script.on_event(defines.events.on_entity_cloned, function(event) 
+--    placedfli(event.destination, global.flitype[event.entity.unit_number])
+--    game.print("cloned")
+--end)
+
 script.on_event(defines.events.on_pre_player_mined_item, function(event) removedfli(event.entity) end)
 script.on_event(defines.events.on_robot_pre_mined, function(event) removedfli(event.entity) end)
 script.on_event(defines.events.on_entity_died, function(event) removedfli(event.entity) end)
@@ -43,18 +48,6 @@ end)
 
 
 script.on_configuration_changed(function(data)
-    --if data.mod_changes and data.mod_changes["fluid-level-indicator"] then
-    --    game.print("Fluid level indicator: Updated from ".. tostring(data.mod_changes["fluid-level-indicator"].old_version) .. " to " .. tostring(data.mod_changes["fluid-level-indicator"].new_version))
-    --    for _, force in pairs(game.forces) do
-    --            if global.flikocka ~= nil then
-    --                global.flikocka = nil
-    --            end
-    --            if force.technologies["fluid-level-indicator"].researched then
-    --                force.recipes["fluid-level-indicator"].enabled = true
-    --                force.recipes["fluid-level-indicator-straight"].enabled = true
-    --            end              
-    --    end
-    --end
     global.flis = {}
     global.flitexts = {}
     global.flidig1 = {}

@@ -45,9 +45,13 @@ local function calc_color(fluid_count, fli_type)
     elseif fli_type == 2 then
         g = 0.8 * math.max(0, ((fluid_count > 25 and fluid_count < 75) and 1 or (((fluid_count <= 25 and (fluid_count / 25)) or (fluid_count >= 75 and math.abs(50-fluid_count/50)) and (-(fluid_count-100) / 25) or 0))))
         r = 0.8* ((fluid_count < 25 or fluid_count > 75) and 1 or 2*math.abs(50 - fluid_count) / 50)
-    else
+    elseif fli_type == 3 then
         r=0.8*math.max(0, tonumber((fluid_count >= 50 and fluid_count <= 100) and 1 or ((fluid_count >= 0 and fluid_count < 50) and fluid_count / 50 or 0)))
         g=0.8*math.max(0, fluid_count < 50 and 1 or (100 - fluid_count) / 50)
+    else
+        r = 0.2
+        g = 0.65
+        b = 1
     end
     local color = {r, g, b, a}
     return color
@@ -84,26 +88,46 @@ local function fli_update()
             if fli~=nil then
                 if fli.valid then
                     local surface = fli.surface
-                    local fluid_count_actual = fli.get_fluid_count()
-                    local maxfluid = fli.fluidbox.get_capacity(1)
-                    local fluid_count = fluid_count_actual/maxfluid*100
-                    local color = {1, 1, 1, 1}
                     if global.flitype[fli.unit_number] == nil then
                         -- If migration failed
                         global.flitype[fli.unit_number] = 1
                     end
+                    local fluid_count = 0
+                    if global.flitype[fli.unit_number] == 4 then
+                        fluid_count = fli.fluidbox.get_flow(1)*60
+                        -- game.print(fluid_count)
+                    else
+                        local fluid_count_actual = fli.get_fluid_count()
+                        local maxfluid = fli.fluidbox.get_capacity(1)
+                        fluid_count = fluid_count_actual/maxfluid*100
+                    end
+                    local color = {1, 1, 1, 1}
+
                     color = calc_color(fluid_count, global.flitype[fli.unit_number])
                     if settings.startup["font-picker"].value=="sprite" then
-                        rendering.set_sprite(global.flidig1[global.fliindex], get_digit(tostring(string.format("%.f",fluid_count)),1))
-                        rendering.set_sprite(global.flidig10[global.fliindex], get_digit(tostring(string.format("%.f",fluid_count)),2))
-                        rendering.set_sprite(global.flidig100[global.fliindex], get_digit(tostring(string.format("%.f",fluid_count)),3))
+                        if global.flitype[fli.unit_number] == 4 then
+                            rendering.set_sprite(global.flidig1[global.fliindex], get_digit(tostring(string.format("%.f",fluid_count)),2))
+                            rendering.set_sprite(global.flidig10[global.fliindex], get_digit(tostring(string.format("%.f",fluid_count)),3))
+                            rendering.set_sprite(global.flidig100[global.fliindex], get_digit(tostring(string.format("%.f",fluid_count)),4))
+                            rendering.set_sprite(global.flidigpc[global.fliindex], get_digit(tostring(string.format("%.f",fluid_count)),1))
+                        else
+                            rendering.set_sprite(global.flidig1[global.fliindex], get_digit(tostring(string.format("%.f",fluid_count)),1))
+                            rendering.set_sprite(global.flidig10[global.fliindex], get_digit(tostring(string.format("%.f",fluid_count)),2))
+                            rendering.set_sprite(global.flidig100[global.fliindex], get_digit(tostring(string.format("%.f",fluid_count)),3))
+                            rendering.set_sprite(global.flidigpc[global.fliindex], "flinumberpc")
+                        end
                         rendering.set_color(global.flidig1[fli.unit_number],color)
                         rendering.set_color(global.flidig10[fli.unit_number],color)
                         rendering.set_color(global.flidig100[fli.unit_number],color)
                         rendering.set_color(global.flidigpc[fli.unit_number],color)
                     else
-                        rendering.set_text(global.flitexts[fli.unit_number],tostring(string.format("%.f",fluid_count)).."%" )
-                        rendering.set_color(global.flitexts[fli.unit_number], color)
+                        if global.flitype[fli.unit_number] == 4 then
+                            rendering.set_text(global.flitexts[fli.unit_number],tostring(string.format("%.f",fluid_count)))
+                            rendering.set_color(global.flitexts[fli.unit_number], color)
+                        else
+                            rendering.set_text(global.flitexts[fli.unit_number],tostring(string.format("%.f",fluid_count)).."%" )
+                            rendering.set_color(global.flitexts[fli.unit_number], color)
+                        end
                     end
                 else
                     if settings.startup["font-picker"].value=="sprite" then
