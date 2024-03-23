@@ -5,6 +5,7 @@ Date: 23 March 2024
     - Changed MK4 tech price (Bob's Logistics compatibility). 
   Bugfixes:
     - Fixed MK4 recipe ingredients (Bob's Logistics compatibility).
+    - Fixed locale for the new MK entities.
 ---------------------------------------------------------------------------------------------------
 Version: 0.8.2
 Date: 22 March 2024
