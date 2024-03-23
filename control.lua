@@ -26,7 +26,7 @@ script.on_event(defines.events.on_pre_chunk_deleted, function(event)
       local x = chunk.x
       local y = chunk.y
       local area = {{x*32,y*32},{31+x*32,31+y*32}}
-      for _,ent in pairs(surface.find_entities_filtered{name = {"fluid-level-indicator", "fluid-level-indicator-straight","fluid-level-indicator-k2","fluid-level-indicator-straight-k2"},area = area}) do
+      for _,ent in pairs(surface.find_entities_filtered{name = {"fluid-level-indicator", "fluid-level-indicator-straight","fluid-level-indicator-k2","fluid-level-indicator-straight-k2","fluid-level-indicator-st-bobs-steel","fluid-level-indicator-st-bobs-plastic","fluid-level-indicator-st-bobs-tungsten","fluid-level-indicator-st-bobs-coppertungsten"},area = area}) do
         removedfli(ent)
       end
     end
@@ -34,14 +34,14 @@ end)
 
 script.on_event(defines.events.on_pre_surface_cleared,function(event)
     local surface = game.surfaces[event.surface_index]
-    for _,ent in pairs(surface.find_entities_filtered(surface.find_entities_filtered({name = {"fluid-level-indicator", "fluid-level-indicator-straight","fluid-level-indicator-k2","fluid-level-indicator-straight-k2"}}))) do
+    for _,ent in pairs(surface.find_entities_filtered(surface.find_entities_filtered({name = {"fluid-level-indicator", "fluid-level-indicator-straight","fluid-level-indicator-k2","fluid-level-indicator-straight-k2","fluid-level-indicator-st-bobs-steel","fluid-level-indicator-st-bobs-plastic","fluid-level-indicator-st-bobs-tungsten","fluid-level-indicator-st-bobs-coppertungsten"}}))) do
         removedfli(ent)
     end
 end)
 
 script.on_event(defines.events.on_pre_surface_deleted,function(event)
     local surface = game.surfaces[event.surface_index]
-    for _,ent in pairs(surface.find_entities_filtered(surface.find_entities_filtered({name = {"fluid-level-indicator", "fluid-level-indicator-straight","fluid-level-indicator-k2","fluid-level-indicator-straight-k2"}}))) do
+    for _,ent in pairs(surface.find_entities_filtered(surface.find_entities_filtered({name = {"fluid-level-indicator", "fluid-level-indicator-straight","fluid-level-indicator-k2","fluid-level-indicator-straight-k2","fluid-level-indicator-st-bobs-steel","fluid-level-indicator-st-bobs-plastic","fluid-level-indicator-st-bobs-tungsten","fluid-level-indicator-st-bobs-coppertungsten"}}))) do
         removedfli(ent)
     end
 end)
@@ -88,7 +88,7 @@ end)
 script.on_event(defines.events.on_gui_opened, function(event)
     local player = game.players[event.player_index]
     local ent = event.entity
-    if (event.gui_type == defines.gui_type.entity) and ((ent.name == "fluid-level-indicator") or (ent.name == "fluid-level-indicator-straight") or (ent.name == "fluid-level-indicator-k2") or (ent.name == "fluid-level-indicator-straight-k2")) then
+    if (event.gui_type == defines.gui_type.entity) and ((ent.name == "fluid-level-indicator") or (ent.name == "fluid-level-indicator-straight") or (ent.name == "fluid-level-indicator-k2") or (ent.name == "fluid-level-indicator-straight-k2") or (ent.name == "fluid-level-indicator-st-bobs-steel") or (ent.name == "fluid-level-indicator-st-bobs-plastic") or (ent.name == "fluid-level-indicator-st-bobs-tungsten") or (ent.name == "fluid-level-indicator-st-bobs-coppertungsten")) then
         open_fli_gui(player, ent)
     end
 end)
@@ -96,7 +96,7 @@ end)
 script.on_event(defines.events.on_gui_closed, function(event)
     local player = game.players[event.player_index]
     local ent = event.entity
-    if (event.gui_type == defines.gui_type.entity) and ((ent.name == "fluid-level-indicator") or (ent.name == "fluid-level-indicator-straight") or (ent.name == "fluid-level-indicator-k2") or (ent.name == "fluid-level-indicator-straight-k2")) then
+    if (event.gui_type == defines.gui_type.entity) and ((ent.name == "fluid-level-indicator") or (ent.name == "fluid-level-indicator-straight") or (ent.name == "fluid-level-indicator-k2") or (ent.name == "fluid-level-indicator-straight-k2") or (ent.name == "fluid-level-indicator-st-bobs-steel") or (ent.name == "fluid-level-indicator-st-bobs-plastic") or (ent.name == "fluid-level-indicator-st-bobs-tungsten") or (ent.name == "fluid-level-indicator-st-bobs-coppertungsten")) then
         close_fli_gui(player, ent)
     end
 end)

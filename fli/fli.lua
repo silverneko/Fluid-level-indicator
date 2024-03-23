@@ -59,23 +59,36 @@ end
 
 function removedfli(removed_entity)
 
-    if (removed_entity.name=="fluid-level-indicator") or (removed_entity.name=="fluid-level-indicator-straight") or (removed_entity.name=="fluid-level-indicator-k2") or (removed_entity.name=="fluid-level-indicator-straight-k2")then
-        global.flis[removed_entity.unit_number] = nil
-        --rendering.destroy(global.flikocka[removed_entity.unit_number])
-        --global.flikocka[removed_entity.unit_number] = nil
-        global.flitype[removed_entity.unit_number] = nil
-        if settings.startup["font-picker"].value=="sprite" then
-            rendering.destroy(global.flidig1[removed_entity.unit_number])
-            rendering.destroy(global.flidig10[removed_entity.unit_number])
-            rendering.destroy(global.flidig100[removed_entity.unit_number])
-            rendering.destroy(global.flidigpc[removed_entity.unit_number])
-            global.flidig1[removed_entity.unit_number] = nil
-            global.flidig10[removed_entity.unit_number] = nil
-            global.flidig100[removed_entity.unit_number] = nil
-            global.flidigpc[removed_entity.unit_number] = nil
-        else
-            rendering.destroy(global.flitexts[removed_entity.unit_number])
-            global.flitexts[removed_entity.unit_number] = nil
+    local fluidentities = {
+        "fluid-level indicator",
+        "fluid-level-indicator-straight",
+        "fluid-level-indicator-k2",
+        "fluid-level-indicator-straight-k2",
+        "fluid-level-indicator-st-bobs-steel",
+        "fluid-level-indicator-st-bobs-plastic",
+        "fluid-level-indicator-st-bobs-tungsten",
+        "fluid-level-indicator-st-bobs-coppertungsten"
+    }
+    --if (removed_entity.name=="fluid-level-indicator") or (removed_entity.name=="fluid-level-indicator-straight") or (removed_entity.name=="fluid-level-indicator-k2") or (removed_entity.name=="fluid-level-indicator-straight-k2")then
+    for _, entityname in ipairs(fluidentities) do
+        if removed_entity.name == entityname then
+            global.flis[removed_entity.unit_number] = nil
+            --rendering.destroy(global.flikocka[removed_entity.unit_number])
+            --global.flikocka[removed_entity.unit_number] = nil
+            global.flitype[removed_entity.unit_number] = nil
+            if settings.startup["font-picker"].value=="sprite" then
+                rendering.destroy(global.flidig1[removed_entity.unit_number])
+                rendering.destroy(global.flidig10[removed_entity.unit_number])
+                rendering.destroy(global.flidig100[removed_entity.unit_number])
+                rendering.destroy(global.flidigpc[removed_entity.unit_number])
+                global.flidig1[removed_entity.unit_number] = nil
+                global.flidig10[removed_entity.unit_number] = nil
+                global.flidig100[removed_entity.unit_number] = nil
+                global.flidigpc[removed_entity.unit_number] = nil
+            else
+                rendering.destroy(global.flitexts[removed_entity.unit_number])
+                global.flitexts[removed_entity.unit_number] = nil
+            end
         end
     end
 end
@@ -235,11 +248,24 @@ end
 function placedfli(placed_entity)
 
     local surface = placed_entity.surface
-    if (placed_entity.name=="fluid-level-indicator") or (placed_entity.name=="fluid-level-indicator-straight") or (placed_entity.name=="fluid-level-indicator-k2") or (placed_entity.name=="fluid-level-indicator-straight-k2") then
-        global.flis[placed_entity.unit_number] = placed_entity
-        create_textbox(placed_entity, surface)
-        global.fliindex = placed_entity.unit_number
-        global.flitype[placed_entity.unit_number] = 1
+    local fluidentities = {
+        "fluid-level indicator",
+        "fluid-level-indicator-straight",
+        "fluid-level-indicator-k2",
+        "fluid-level-indicator-straight-k2",
+        "fluid-level-indicator-st-bobs-steel",
+        "fluid-level-indicator-st-bobs-plastic",
+        "fluid-level-indicator-st-bobs-tungsten",
+        "fluid-level-indicator-st-bobs-coppertungsten"
+    }
+    for _, entityname in ipairs(fluidentities) do
+        if placed_entity.name == entityname then
+            --if (placed_entity.name=="fluid-level-indicator") or (placed_entity.name=="fluid-level-indicator-straight") or (placed_entity.name=="fluid-level-indicator-k2") or (placed_entity.name=="fluid-level-indicator-straight-k2") then
+            global.flis[placed_entity.unit_number] = placed_entity
+            create_textbox(placed_entity, surface)
+            global.fliindex = placed_entity.unit_number
+            global.flitype[placed_entity.unit_number] = 1
+        end
     end
 end
 
@@ -247,7 +273,7 @@ function register_flis()
 
     rendering.clear("Fluid-level-indicator")
     for _,surface in pairs(game.surfaces) do
-        for _,fli in pairs(surface.find_entities_filtered({name = {"fluid-level-indicator", "fluid-level-indicator-straight","fluid-level-indicator-k2","fluid-level-indicator-straight-k2"}})) do
+        for _,fli in pairs(surface.find_entities_filtered({name = {"fluid-level-indicator", "fluid-level-indicator-straight","fluid-level-indicator-k2","fluid-level-indicator-straight-k2","fluid-level-indicator-st-bobs-steel","fluid-level-indicator-st-bobs-plastic","fluid-level-indicator-st-bobs-tungsten","fluid-level-indicator-st-bobs-coppertungsten"}})) do
             global.flis[fli.unit_number] = fli
             if global.flitype[fli.unit_number] == nil then
                 global.flitype[fli.unit_number] = 1
@@ -260,5 +286,3 @@ function register_flis()
         global.fliindex, fli = next(global.flis, nil)
     end
 end
-
-
