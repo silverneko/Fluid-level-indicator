@@ -1,141 +1,8 @@
-local function flipipecovers(pipename)
-  return {
-    north = {
-      layers = {
-        {
-          filename = "__Fluid-level-indicator__/graphics/entities/pipecovers/" .. pipename .. "-pipe-cover-north.png",
-          priority = "extra-high",
-          width = 64,
-          height = 64,
-          hr_version = {
-            filename = "__Fluid-level-indicator__/graphics/entities/pipecovers/" .. pipename .. "-hr-pipe-cover-north.png",
-            priority = "extra-high",
-            width = 128,
-            height = 128,
-            scale = 0.5,
-          },
-        },
-        {
-          filename = "__base__/graphics/entity/pipe-covers/pipe-cover-north-shadow.png",
-          priority = "extra-high",
-          width = 64,
-          height = 64,
-          draw_as_shadow = true,
-          hr_version = {
-            filename = "__base__/graphics/entity/pipe-covers/hr-pipe-cover-north-shadow.png",
-            priority = "extra-high",
-            width = 128,
-            height = 128,
-            scale = 0.5,
-            draw_as_shadow = true,
-          },
-        },
-      },
-    },
-    east = {
-      layers = {
-        {
-          filename = "__Fluid-level-indicator__/graphics/entities/pipecovers/" .. pipename .. "-pipe-cover-east.png",
-          priority = "extra-high",
-          width = 64,
-          height = 64,
-          hr_version = {
-            filename = "__Fluid-level-indicator__/graphics/entities/pipecovers/" .. pipename .. "-hr-pipe-cover-east.png",
-            priority = "extra-high",
-            width = 128,
-            height = 128,
-            scale = 0.5,
-          },
-        },
-        {
-          filename = "__base__/graphics/entity/pipe-covers/pipe-cover-east-shadow.png",
-          priority = "extra-high",
-          width = 64,
-          height = 64,
-          draw_as_shadow = true,
-          hr_version = {
-            filename = "__base__/graphics/entity/pipe-covers/hr-pipe-cover-east-shadow.png",
-            priority = "extra-high",
-            width = 128,
-            height = 128,
-            scale = 0.5,
-            draw_as_shadow = true,
-          },
-        },
-      },
-    },
-    south = {
-      layers = {
-        {
-          filename = "__Fluid-level-indicator__/graphics/entities/pipecovers/" .. pipename .. "-pipe-cover-south.png",
-          priority = "extra-high",
-          width = 64,
-          height = 64,
-          hr_version = {
-            filename = "__Fluid-level-indicator__/graphics/entities/pipecovers/" .. pipename .. "-hr-pipe-cover-south.png",
-            priority = "extra-high",
-            width = 128,
-            height = 128,
-            scale = 0.5,
-          },
-        },
-        {
-          filename = "__base__/graphics/entity/pipe-covers/pipe-cover-south-shadow.png",
-          priority = "extra-high",
-          width = 64,
-          height = 64,
-          draw_as_shadow = true,
-          hr_version = {
-            filename = "__base__/graphics/entity/pipe-covers/hr-pipe-cover-south-shadow.png",
-            priority = "extra-high",
-            width = 128,
-            height = 128,
-            scale = 0.5,
-            draw_as_shadow = true,
-          },
-        },
-      },
-    },
-    west = {
-      layers = {
-        {
-          filename = "__Fluid-level-indicator__/graphics/entities/pipecovers/" .. pipename .. "-pipe-cover-west.png",
-          priority = "extra-high",
-          width = 64,
-          height = 64,
-          hr_version = {
-            filename = "__Fluid-level-indicator__/graphics/entities/pipecovers/" .. pipename .. "-hr-pipe-cover-west.png",
-            priority = "extra-high",
-            width = 128,
-            height = 128,
-            scale = 0.5,
-          },
-        },
-        {
-          filename = "__base__/graphics/entity/pipe-covers/pipe-cover-west-shadow.png",
-          priority = "extra-high",
-          width = 64,
-          height = 64,
-          draw_as_shadow = true,
-          hr_version = {
-            filename = "__base__/graphics/entity/pipe-covers/hr-pipe-cover-west-shadow.png",
-            priority = "extra-high",
-            width = 128,
-            height = 128,
-            scale = 0.5,
-            draw_as_shadow = true,
-          },
-        },
-      },
-    },
-  }
-end
-
 -- tungsten fluid level indicator straight for bobs ores
 
 fluid_level_indicator_bobtungsten = util.table.deepcopy(data.raw["storage-tank"]["storage-tank"])
 fluid_level_indicator_bobtungsten.name = "fluid-level-indicator-st-bobs-tungsten"
-fluid_level_indicator_bobtungsten.icon = "__Fluid-level-indicator__/graphics/icons/straight-icon128-tungsten.png"
+fluid_level_indicator_bobtungsten.icon = "__Fluid-level-indicator__/graphics/icons/straight-icon128-MK4.png"
 fluid_level_indicator_bobtungsten.icon_size = 128
 fluid_level_indicator_bobtungsten.flags = {"hide-alt-info", "placeable-player", "player-creation", "placeable-neutral", "placeable-enemy"}
 fluid_level_indicator_bobtungsten.minable = {mining_time = 0.1, result = "fluid-level-indicator-st-bobs-tungsten"}
@@ -169,7 +36,7 @@ fluid_level_indicator_bobtungsten.fluid_box =
       base_area = 1,
       base_level = 0,
       height = 1,
-      pipe_covers = flipipecovers("tungsten"),
+      pipe_covers = pipecoverspictures(),
       pipe_connections =
       {
         { position = {0, -1} },
@@ -184,7 +51,7 @@ fluid_level_indicator_bobtungsten.pictures =
         sheets =
         {
           {
-            filename = "__Fluid-level-indicator__/graphics/entities/pipe-straight-screen-tungsten.png",
+            filename = "__Fluid-level-indicator__/graphics/entities/pipe-straight-screen.png",
             priority = "extra-high",
             frames = 2,
             width = 64,
@@ -192,7 +59,7 @@ fluid_level_indicator_bobtungsten.pictures =
             --scale = 0.5,
             hr_version =
             {
-              filename = "__Fluid-level-indicator__/graphics/entities/hr-pipe-straight-screen-tungsten.png",
+              filename = "__Fluid-level-indicator__/graphics/entities/hr-pipe-straight-screen.png",
               priority = "extra-high",
               frames = 2,
               width = 128,
@@ -233,7 +100,7 @@ fluid_level_indicator_bobtungsten.pictures =
 
 fluid_level_indicator_bobcoppertungsten = util.table.deepcopy(data.raw["storage-tank"]["storage-tank"])
 fluid_level_indicator_bobcoppertungsten.name = "fluid-level-indicator-st-bobs-coppertungsten"
-fluid_level_indicator_bobcoppertungsten.icon = "__Fluid-level-indicator__/graphics/icons/straight-icon128-coppertungsten.png"
+fluid_level_indicator_bobcoppertungsten.icon = "__Fluid-level-indicator__/graphics/icons/straight-icon128-MK5.png"
 fluid_level_indicator_bobcoppertungsten.icon_size = 128
 fluid_level_indicator_bobcoppertungsten.flags = {"hide-alt-info", "placeable-player", "player-creation", "placeable-neutral", "placeable-enemy"}
 fluid_level_indicator_bobcoppertungsten.minable = {mining_time = 0.1, result = "fluid-level-indicator-st-bobs-coppertungsten"}
@@ -267,7 +134,7 @@ fluid_level_indicator_bobcoppertungsten.fluid_box =
       base_area = 1,
       base_level = 0,
       height = 1,
-      pipe_covers = flipipecovers("coppertungsten"),
+      pipe_covers = pipecoverspictures(),
       pipe_connections =
       {
         { position = {0, -1} },
@@ -282,7 +149,7 @@ fluid_level_indicator_bobcoppertungsten.pictures =
         sheets =
         {
           {
-            filename = "__Fluid-level-indicator__/graphics/entities/pipe-straight-screen-coppertungsten.png",
+            filename = "__Fluid-level-indicator__/graphics/entities/pipe-straight-screen.png",
             priority = "extra-high",
             frames = 2,
             width = 64,
@@ -290,7 +157,7 @@ fluid_level_indicator_bobcoppertungsten.pictures =
             --scale = 0.5,
             hr_version =
             {
-              filename = "__Fluid-level-indicator__/graphics/entities/hr-pipe-straight-screen-coppertungsten.png",
+              filename = "__Fluid-level-indicator__/graphics/entities/hr-pipe-straight-screen.png",
               priority = "extra-high",
               frames = 2,
               width = 128,
@@ -337,7 +204,7 @@ data:extend({
 {
   type = "item",
   name = "fluid-level-indicator-st-bobs-tungsten",
-  icon = "__Fluid-level-indicator__/graphics/icons/straight-icon128-tungsten.png",
+  icon = "__Fluid-level-indicator__/graphics/icons/straight-icon128-MK4.png",
   icon_size = 128,
   flags = {},
   subgroup = "energy-pipe-distribution",
@@ -348,7 +215,7 @@ data:extend({
 {
   type = "item",
   name = "fluid-level-indicator-st-bobs-coppertungsten",
-  icon = "__Fluid-level-indicator__/graphics/icons/straight-icon128-coppertungsten.png",
+  icon = "__Fluid-level-indicator__/graphics/icons/straight-icon128-MK5.png",
   icon_size = 128,
   flags = {},
   subgroup = "energy-pipe-distribution",

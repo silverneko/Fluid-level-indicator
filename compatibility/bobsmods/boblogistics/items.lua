@@ -1,141 +1,8 @@
-local function flipipecovers(pipename)
-  return {
-    north = {
-      layers = {
-        {
-          filename = "__Fluid-level-indicator__/graphics/entities/pipecovers/" .. pipename .. "-pipe-cover-north.png",
-          priority = "extra-high",
-          width = 64,
-          height = 64,
-          hr_version = {
-            filename = "__Fluid-level-indicator__/graphics/entities/pipecovers/" .. pipename .. "-hr-pipe-cover-north.png",
-            priority = "extra-high",
-            width = 128,
-            height = 128,
-            scale = 0.5,
-          },
-        },
-        {
-          filename = "__base__/graphics/entity/pipe-covers/pipe-cover-north-shadow.png",
-          priority = "extra-high",
-          width = 64,
-          height = 64,
-          draw_as_shadow = true,
-          hr_version = {
-            filename = "__base__/graphics/entity/pipe-covers/hr-pipe-cover-north-shadow.png",
-            priority = "extra-high",
-            width = 128,
-            height = 128,
-            scale = 0.5,
-            draw_as_shadow = true,
-          },
-        },
-      },
-    },
-    east = {
-      layers = {
-        {
-          filename = "__Fluid-level-indicator__/graphics/entities/pipecovers/" .. pipename .. "-pipe-cover-east.png",
-          priority = "extra-high",
-          width = 64,
-          height = 64,
-          hr_version = {
-            filename = "__Fluid-level-indicator__/graphics/entities/pipecovers/" .. pipename .. "-hr-pipe-cover-east.png",
-            priority = "extra-high",
-            width = 128,
-            height = 128,
-            scale = 0.5,
-          },
-        },
-        {
-          filename = "__base__/graphics/entity/pipe-covers/pipe-cover-east-shadow.png",
-          priority = "extra-high",
-          width = 64,
-          height = 64,
-          draw_as_shadow = true,
-          hr_version = {
-            filename = "__base__/graphics/entity/pipe-covers/hr-pipe-cover-east-shadow.png",
-            priority = "extra-high",
-            width = 128,
-            height = 128,
-            scale = 0.5,
-            draw_as_shadow = true,
-          },
-        },
-      },
-    },
-    south = {
-      layers = {
-        {
-          filename = "__Fluid-level-indicator__/graphics/entities/pipecovers/" .. pipename .. "-pipe-cover-south.png",
-          priority = "extra-high",
-          width = 64,
-          height = 64,
-          hr_version = {
-            filename = "__Fluid-level-indicator__/graphics/entities/pipecovers/" .. pipename .. "-hr-pipe-cover-south.png",
-            priority = "extra-high",
-            width = 128,
-            height = 128,
-            scale = 0.5,
-          },
-        },
-        {
-          filename = "__base__/graphics/entity/pipe-covers/pipe-cover-south-shadow.png",
-          priority = "extra-high",
-          width = 64,
-          height = 64,
-          draw_as_shadow = true,
-          hr_version = {
-            filename = "__base__/graphics/entity/pipe-covers/hr-pipe-cover-south-shadow.png",
-            priority = "extra-high",
-            width = 128,
-            height = 128,
-            scale = 0.5,
-            draw_as_shadow = true,
-          },
-        },
-      },
-    },
-    west = {
-      layers = {
-        {
-          filename = "__Fluid-level-indicator__/graphics/entities/pipecovers/" .. pipename .. "-pipe-cover-west.png",
-          priority = "extra-high",
-          width = 64,
-          height = 64,
-          hr_version = {
-            filename = "__Fluid-level-indicator__/graphics/entities/pipecovers/" .. pipename .. "-hr-pipe-cover-west.png",
-            priority = "extra-high",
-            width = 128,
-            height = 128,
-            scale = 0.5,
-          },
-        },
-        {
-          filename = "__base__/graphics/entity/pipe-covers/pipe-cover-west-shadow.png",
-          priority = "extra-high",
-          width = 64,
-          height = 64,
-          draw_as_shadow = true,
-          hr_version = {
-            filename = "__base__/graphics/entity/pipe-covers/hr-pipe-cover-west-shadow.png",
-            priority = "extra-high",
-            width = 128,
-            height = 128,
-            scale = 0.5,
-            draw_as_shadow = true,
-          },
-        },
-      },
-    },
-  }
-end
-
 -- steel fluid level indicator straight for bobs logistics
 
 fluid_level_indicator_bobsteel = util.table.deepcopy(data.raw["storage-tank"]["storage-tank"])
 fluid_level_indicator_bobsteel.name = "fluid-level-indicator-st-bobs-steel"
-fluid_level_indicator_bobsteel.icon = "__Fluid-level-indicator__/graphics/icons/straight-icon128-ss.png"
+fluid_level_indicator_bobsteel.icon = "__Fluid-level-indicator__/graphics/icons/straight-icon128-MK2.png"
 fluid_level_indicator_bobsteel.icon_size = 128
 fluid_level_indicator_bobsteel.flags = {"hide-alt-info", "placeable-player", "player-creation", "placeable-neutral", "placeable-enemy"}
 fluid_level_indicator_bobsteel.minable = {mining_time = 0.1, result = "fluid-level-indicator-st-bobs-steel"}
@@ -169,7 +36,7 @@ fluid_level_indicator_bobsteel.fluid_box =
       base_area = 1,
       base_level = 0,
       height = 1,
-      pipe_covers = flipipecovers("steel"),
+      pipe_covers = pipecoverspictures(),
       pipe_connections =
       {
         { position = {0, -1} },
@@ -184,7 +51,7 @@ fluid_level_indicator_bobsteel.pictures =
         sheets =
         {
           {
-            filename = "__Fluid-level-indicator__/graphics/entities/pipe-straight-screen-ss.png",
+            filename = "__Fluid-level-indicator__/graphics/entities/pipe-straight-screen.png",
             priority = "extra-high",
             frames = 2,
             width = 64,
@@ -192,7 +59,7 @@ fluid_level_indicator_bobsteel.pictures =
             --scale = 0.5,
             hr_version =
             {
-              filename = "__Fluid-level-indicator__/graphics/entities/hr-pipe-straight-screen-ss.png",
+              filename = "__Fluid-level-indicator__/graphics/entities/hr-pipe-straight-screen.png",
               priority = "extra-high",
               frames = 2,
               width = 128,
@@ -227,14 +94,13 @@ fluid_level_indicator_bobsteel.pictures =
       fluid_background = empty_sprite,
       window_background = empty_sprite,
       flow_sprite = empty_sprite
-
 }
 
 -- plastic fluid level indicator straight for bobs logistics
 
 fluid_level_indicator_bobplastic = util.table.deepcopy(data.raw["storage-tank"]["storage-tank"])
 fluid_level_indicator_bobplastic.name = "fluid-level-indicator-st-bobs-plastic"
-fluid_level_indicator_bobplastic.icon = "__Fluid-level-indicator__/graphics/icons/straight-icon128-bp.png"
+fluid_level_indicator_bobplastic.icon = "__Fluid-level-indicator__/graphics/icons/straight-icon128-MK3.png"
 fluid_level_indicator_bobplastic.icon_size = 128
 fluid_level_indicator_bobplastic.flags = {"hide-alt-info", "placeable-player", "player-creation", "placeable-neutral", "placeable-enemy"}
 fluid_level_indicator_bobplastic.minable = {mining_time = 0.1, result = "fluid-level-indicator-st-bobs-plastic"}
@@ -268,7 +134,7 @@ fluid_level_indicator_bobplastic.fluid_box =
       base_area = 1,
       base_level = 0,
       height = 1,
-      pipe_covers = flipipecovers("plastic"),
+      pipe_covers = pipecoverspictures(),
       pipe_connections =
       {
         { position = {0, -1} },
@@ -283,7 +149,7 @@ fluid_level_indicator_bobplastic.pictures =
         sheets =
         {
           {
-            filename = "__Fluid-level-indicator__/graphics/entities/pipe-straight-screen-bp.png",
+            filename = "__Fluid-level-indicator__/graphics/entities/pipe-straight-screen.png",
             priority = "extra-high",
             frames = 2,
             width = 64,
@@ -291,7 +157,7 @@ fluid_level_indicator_bobplastic.pictures =
             --scale = 0.5,
             hr_version =
             {
-              filename = "__Fluid-level-indicator__/graphics/entities/hr-pipe-straight-screen-bp.png",
+              filename = "__Fluid-level-indicator__/graphics/entities/hr-pipe-straight-screen.png",
               priority = "extra-high",
               frames = 2,
               width = 128,
@@ -338,7 +204,7 @@ data:extend({
 {
     type = "item",
     name = "fluid-level-indicator-st-bobs-steel",
-    icon = "__Fluid-level-indicator__/graphics/icons/straight-icon128-ss.png",
+    icon = "__Fluid-level-indicator__/graphics/icons/straight-icon128-MK2.png",
     icon_size = 128,
     flags = {},
     subgroup = "energy-pipe-distribution",
@@ -349,7 +215,7 @@ data:extend({
 {
   type = "item",
   name = "fluid-level-indicator-st-bobs-plastic",
-  icon = "__Fluid-level-indicator__/graphics/icons/straight-icon128-bp.png",
+  icon = "__Fluid-level-indicator__/graphics/icons/straight-icon128-MK3.png",
   icon_size = 128,
   flags = {},
   subgroup = "energy-pipe-distribution",

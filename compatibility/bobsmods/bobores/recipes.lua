@@ -5,8 +5,9 @@ data:extend({
         energy_required = 2,
         enabled = false,
         ingredients = {
-            {"tungsten-plate", 2},
-            {"tungsten-pipe", 2},
+            {"tungsten-plate", 1},
+            {"titanium-plate", 1},
+            {"tungsten-pipe", 1},
             {"small-lamp",1}
         },
         results = {
@@ -19,8 +20,9 @@ data:extend({
         energy_required = 2,
         enabled = false,
         ingredients = {
-            {"copper-tungsten-plate", 2},
+            {"copper-tungsten-alloy", 1},
             {"copper-tungsten-pipe", 1},
+            {"nitinol-plate", 1},
             {"small-lamp",1}
         },
         results = {

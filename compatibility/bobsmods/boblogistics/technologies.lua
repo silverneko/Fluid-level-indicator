@@ -3,7 +3,7 @@ data:extend({
         type = "technology",
         name = "fluid-level-indicator-st-bobs-steel",
         icon_size = 256,
-        icon = "__Fluid-level-indicator__/graphics/icons/tech_icon_blackscreenbck_ss.png",
+        icon = "__Fluid-level-indicator__/graphics/icons/tech_icon_blackscreenbck_MK2.png",
         hidden = false,
         effects =
         {
@@ -28,7 +28,7 @@ data:extend({
         type = "technology",
         name = "fluid-level-indicator-st-bobs-plastic",
         icon_size = 256,
-        icon = "__Fluid-level-indicator__/graphics/icons/tech_icon_blackscreenbck_bobsplastic.png",
+        icon = "__Fluid-level-indicator__/graphics/icons/tech_icon_blackscreenbck_MK3.png",
         hidden = false,
         effects =
         {

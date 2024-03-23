@@ -13,7 +13,7 @@ if mods["boblogistics"] then
     end
 end
 
-if mods["boblogistics"] and mods["bobores"] then
+if mods["boblogistics"] and mods["bobores"] and mods["bobplates"] then
     if settings.startup["bobmods-logistics-highpipes"].value == true then
         require("compatibility/bobsmods/bobores/items.lua")
         require("compatibility/bobsmods/bobores/recipes.lua")

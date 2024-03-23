@@ -3,7 +3,7 @@ data:extend({
         type = "technology",
         name = "fluid-level-indicator-st-bobs-tungsten",
         icon_size = 256,
-        icon = "__Fluid-level-indicator__/graphics/icons/tech_icon_blackscreenbck_tungsten.png",
+        icon = "__Fluid-level-indicator__/graphics/icons/tech_icon_blackscreenbck_MK4.png",
         hidden = false,
         effects =
         {
@@ -12,7 +12,7 @@ data:extend({
             recipe = "fluid-level-indicator-st-bobs-tungsten"
           }
         },
-        prerequisites = {"optics", "tungsten-processing", "fluid-level-indicator"},
+        prerequisites = {"optics", "tungsten-processing", "titanium-processing", "fluid-level-indicator"},
         unit =
         {
           count = 50,
@@ -30,7 +30,7 @@ data:extend({
         type = "technology",
         name = "fluid-level-indicator-st-bobs-coppertungsten",
         icon_size = 256,
-        icon = "__Fluid-level-indicator__/graphics/icons/tech_icon_blackscreenbck_ct.png",
+        icon = "__Fluid-level-indicator__/graphics/icons/tech_icon_blackscreenbck_MK5.png",
         hidden = false,
         effects =
         {
@@ -39,7 +39,7 @@ data:extend({
             recipe = "fluid-level-indicator-st-bobs-coppertungsten"
           }
         },
-        prerequisites = {"optics", "tungsten-alloy-processing", "fluid-level-indicator"},
+        prerequisites = {"optics", "tungsten-alloy-processing", "nitinol-processing","fluid-level-indicator"},
         unit =
         {
           count = 50,

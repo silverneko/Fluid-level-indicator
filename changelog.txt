@@ -1,8 +1,8 @@
 ---------------------------------------------------------------------------------------------------
 Version: 0.8.2
-Date: 19 February 2024
+Date: 22 March 2024
   Minor Features:
-    - Added support for Bob's Logistics pipes (so far one per size).
+    - Added higher fluid capacity entities for compatibility with the different pipe sizes in Bob's Logistics mod.
 ---------------------------------------------------------------------------------------------------
 Version: 0.8.1
 Date: 19 February 2024
