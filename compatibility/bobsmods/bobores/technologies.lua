@@ -42,7 +42,7 @@ data:extend({
         prerequisites = {"optics", "tungsten-alloy-processing", "nitinol-processing","fluid-level-indicator"},
         unit =
         {
-          count = 50,
+          count = 100,
           ingredients =
           {
             {"automation-science-pack", 1},

@@ -22,7 +22,7 @@ data:extend({
         ingredients = {
             {"copper-tungsten-alloy", 1},
             {"copper-tungsten-pipe", 1},
-            {"nitinol-plate", 1},
+            {"nitinol-alloy", 1},
             {"small-lamp",1}
         },
         results = {
