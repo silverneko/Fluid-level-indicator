@@ -60,7 +60,7 @@ end
 function removedfli(removed_entity)
 
     local fluidentities = {
-        "fluid-level indicator",
+        "fluid-level-indicator",
         "fluid-level-indicator-straight",
         "fluid-level-indicator-k2",
         "fluid-level-indicator-straight-k2",
@@ -249,7 +249,7 @@ function placedfli(placed_entity)
 
     local surface = placed_entity.surface
     local fluidentities = {
-        "fluid-level indicator",
+        "fluid-level-indicator",
         "fluid-level-indicator-straight",
         "fluid-level-indicator-k2",
         "fluid-level-indicator-straight-k2",
