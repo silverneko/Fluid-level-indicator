@@ -20,3 +20,9 @@ if mods["boblogistics"] and mods["bobores"] and mods["bobplates"] then
         require("compatibility/bobsmods/bobores/technologies.lua")
     end
 end
+
+if mods["Ultracube"] then
+    require("compatibility/ultracube/items.lua")
+    require("compatibility/ultracube/recipes.lua")
+    require("compatibility/ultracube/technologies.lua")
+end
